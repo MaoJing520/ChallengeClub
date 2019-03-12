@@ -17,7 +17,7 @@ using ChallengeClub.Services;
 namespace ChallengeClub.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
+    [Route("/admin/[controller]/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
