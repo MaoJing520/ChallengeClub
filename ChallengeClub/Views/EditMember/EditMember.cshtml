@@ -27,11 +27,11 @@
 
         @foreach (var item in Model.Member)
         {
-        <form>
+        <form method="post" action="/delete">
             <table>
                 <tr>
                     <td style="width:150%" name="member_@item.MemberId"><h4>@item.Name</h4></td>
-                    <td><button name="@item.MemberId" style="border-radius:7px;color:whitesmoke;background-color:darkred">edit</button></td>
+                   <!-- <td><button name="@item.MemberId" style="border-radius:7px;color:whitesmoke;background-color:darkred">edit</button></td>-->
                     <td><input name="memberId" type="text" value="@item.MemberId" hidden /></td>
                     <td><input value="delete" type="submit" name="@item.MemberId" style="border-radius:7px;color:whitesmoke;background-color:darkred" /></td>
                 </tr>

@@ -22,11 +22,11 @@
     <br />
     <button type="button" style="height:50px; background-color:#030B85;float:right" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eventModal">+ Add Event</button>
 
-    <div style="width:90%">
+    <div style="width:60%">
         <h5>Use the "+Add Event" button to add an event to the calendar.</h5>
         <h5>Use the "edit" button to view and edit an event's information.</h5>
         <h5>Use the "delete" button to remove an event from the calendar.</h5>
-        
+        <hr />
     </div>
 
     <div class="modal fade" id="eventModal" role="dialog">
@@ -91,15 +91,17 @@
                     @foreach (var item in Model.MonthlyEvents)
     {
 
-
-                <table>
-                    <tr><td><h3 id="eventDate_@item.EventId"></h3></td></tr>
-                    <tr>
-                        <td style="width:150%" name="event_@item.EventId" id="eventPlace_@item.EventId"><h4></h4></td>
-                        <td><button name="@item.EventId" style="border-radius:7px">edit</button></td>
-                        <td><button name="@item.EventId" style="border-radius:7px">delete</button></td>
-                    </tr>
-                </table>
+                    <form method="post" action="/deleteEvent">
+                        <table>
+                            <tr><td><h3 id="eventDate_@item.EventId"></h3></td></tr>
+                            <tr>
+                                <td style="width:150%" name="event_@item.EventId" id="eventPlace_@item.EventId"><h4></h4></td>
+                                <td><input type="text" name="eventId" value="@item.EventId" hidden/></td>
+                                <!--<td><button name="@item.EventId" style="border-radius:7px;color:whitesmoke;background-color:darkred">edit</button></td>-->
+                                <td><input type="submit" value="delete" name="@item.EventId" style="border-radius:7px;color:whitesmoke;background-color:darkred" /></td>
+                            </tr>
+                        </table>
+                    </form>
                 <script>DisplayDate("@item.Date","@item.EventId")</script>
                 <script>DisplayEvent("@item.Title","@item.EventId")</script>
                 <hr />

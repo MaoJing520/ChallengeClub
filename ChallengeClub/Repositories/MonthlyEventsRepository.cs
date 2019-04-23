@@ -45,5 +45,19 @@ namespace ChallengeClub.Repositories
                 return connection.Query<MonthlyEvents>(query);
             }
         }
+
+        public void DeleteEventById(int eventId)
+        {
+            var connectionString = configuration.GetConnectionString("ChallengeClubDB");
+            using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
+            {
+                const string query = @"
+                    DELETE FROM MonthlyEvents
+                    WHERE EventId = @EventId
+                ";
+
+                connection.Execute(query, new { EventId = eventId });
+            }
+        }
     }
 }

@@ -45,5 +45,15 @@ namespace ChallengeClub.Controllers
             return View();
 
         }
+
+        [HttpPost ("/delete")]
+        public IActionResult EditMember([FromForm]int memberId)
+        {
+
+            memberRepository.DeleteMemberById(memberId);
+
+            return RedirectToAction("EditMember");
+
+        }
     }
 }

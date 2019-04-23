@@ -22,7 +22,7 @@ namespace ChallengeClub.Repositories
                 //DateTime date = DateTime.Now.Date; 
                 //string loginDate = date.ToString("MM-dd-yyyy");
 
-                var loginDate = "04-10-2019";
+                var loginDate = "04-18-2019";
 
                 
 

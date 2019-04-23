@@ -4,10 +4,17 @@
 }
 
 <div id="body">
+
+
+
     @foreach (var item in Model.MemberAttendance)
     {
-    <h3><a asp-controller="EmployeeDashboardHome" asp-action="EmployeeDashboardHome">@item.Name</a></h3>
 
+        <table>
+            <ul><h3>Today's Attendance</h3></ul>
+            <tr><td><h4><li><a asp-controller="EditMember" asp-action="EditMember">@item.Name</a></li></h4></td></tr>
+        </table>
+        
     }
 
 </div>

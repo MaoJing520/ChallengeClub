@@ -53,7 +53,7 @@ namespace ChallengeClub.Repositories
             {
                 DateTime date = DateTime.Now.Date;
                 var description = "x";
-                var imagePath = "x";
+                var imagePath = "/images/bowling.jpg";
                 const string query = @"
                     INSERT INTO Activity(Name,Hours,ImagePath,Description,Date)
                     VALUES(@Name,@Hours,@ImagePath,@Description,@Date)

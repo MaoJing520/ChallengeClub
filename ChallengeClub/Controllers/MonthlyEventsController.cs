@@ -46,5 +46,15 @@ namespace ChallengeClub.Controllers
             return View();
 
         }
+
+        [HttpPost("/deleteEvent")]
+        public IActionResult MonthlyEvents([FromForm]int eventId)
+        {
+
+            monthlyEventsRepository.DeleteEventById(eventId);
+
+            return RedirectToAction("MonthlyEvents");
+
+        }
     }
 }

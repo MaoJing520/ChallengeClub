@@ -60,5 +60,19 @@ namespace ChallengeClub.Repositories
                 connection.Execute(query, new { Name = name, IconPath = iconPath, MemberNumber = memberNumber });
             }
         }
+
+        public void DeleteMemberById(int memberId)
+        {
+            var connectionString = configuration.GetConnectionString("ChallengeClubDB");
+            using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
+            { 
+                    const string query = @"
+                    DELETE FROM Member 
+                    WHERE MemberId = @MemberId
+                ";
+
+                connection.Execute(query, new { MemberId = memberId });
+            }
+        }
     }
 }

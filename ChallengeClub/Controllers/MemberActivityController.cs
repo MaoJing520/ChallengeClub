@@ -31,7 +31,7 @@ namespace ChallengeClub.Controllers
                     ActivityName = activity.Name,
                     ActivityId = activity.ActivityId,
                     ActivityImage = activity.ImagePath,
-                    StartTime = activity.Description,
+                    StartTime = activity.Hours,
                 };
 
             });

@@ -16,9 +16,9 @@
     <div class="bg-primary"><h1>Is that you ? </h1></div>
 
     <div class="icon"><img src="@Model.IconPath" height="200" width="200"></div>
-
-    <div class="btn-login"><a href="/Welcome/@Model.MemberNumber" class="btn btn-lg btn-success" role="button" >Yes, log in.</a></div>
-
+    <form>
+        <div class="btn-login"><a href="/Welcome/@Model.MemberNumber" class="btn btn-lg btn-success" role="button"><input type="submit" name="attendanceId" hidden/> Yes, log in.</a></div>
+    </form>
     <div class="btn-notme"><a asp-controller="Login" asp-action="Index" class="btn btn-lg btn-danger" role="button">No, it is not me.</a></div>
 
     <div class="btn-logout"><a asp-controller="MemberActivity" asp-action="MemberActivity" class="btn btn-lg btn-warning" role="button">Yes, log out.</a></div>
