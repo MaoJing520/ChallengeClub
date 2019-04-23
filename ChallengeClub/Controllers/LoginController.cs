@@ -37,7 +37,7 @@ namespace ChallengeClub.Controllers
 
             }
 
-            var member = memberRepository.GetMemberById(memberId);
+            var member = memberRepository.GetMemberByNumber(memberId);
             if (member == null)
             {
                 ViewBag.Error = "The number is not exist.  Please Try Again.";

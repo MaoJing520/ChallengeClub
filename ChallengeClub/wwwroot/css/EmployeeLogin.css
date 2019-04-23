@@ -6,7 +6,7 @@
 }
 
 .gradient-button {
-    margin-top:50px;
+    margin-top: 20px;
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 20px;
     padding: 15px;
@@ -25,26 +25,6 @@
     border-radius: 25px;
 }
 
-    .gradient-button:hover {
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        margin: 8px 10px 12px;
-    }
-
-.gradient-button-1 {
-    background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%)
-}
-
-    .gradient-button-1:hover {
-        background-position: right center;
-    }
-
-.gradient-button-2 {
-    background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%)
-}
-
-    .gradient-button-2:hover {
-        background-position: right center;
-    }
 
 .gradient-button-3 {
     background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%)
@@ -54,13 +34,6 @@
         background-position: right center;
     }
 
-.gradient-button-4 {
-    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
-}
-
-    .gradient-button-4:hover {
-        background-position: right center;
-    }
 
 .error_message {
     position: relative;
@@ -75,7 +48,7 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    padding-top: 65px;
+    padding-top: 20px;
     padding-bottom: 54px;
     padding-left: 55px;
     padding-right: 55px;
@@ -89,11 +62,13 @@
 .login-form-title {
     display: block;
     font-family: system-ui;
-    font-size: 40px;
-    color: #333333;
-    line-height: 1.2;
-    text-align: center;
-    padding-bottom: 50px;
+    font-weight: 400;
+    font-size: 6em;
+    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 200px;
+    margin-bottom: 20px;
 }
 
 .wrap-input {

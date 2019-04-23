@@ -19,17 +19,20 @@ namespace ChallengeClub.Repositories
 
         public IEnumerable<Activity> GetActivities()
         {
+            DateTime today = DateTime.Today;
             var connectionString = configuration.GetConnectionString("ChallengeClubDB");
             using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
             {
                 const string query = @"
                     SELECT a.*
                     FROM Activity a
+                    WHERE a.ActivityDate = @ActivityDate
                 ";
 
-                return connection.Query<Activity>(query);
+                return connection.Query<Activity>(query, new { ActivityDate = today });
             }
         }
+
 
         public Activity GetActivityById(string id)
         {
@@ -62,10 +65,7 @@ namespace ChallengeClub.Repositories
                 connection.Execute(query, new { Name = name, Hours = hours, ImagePath = imagePath, Description = description, Date = date });
             }
         }
-        }
-
-
-
-
     }
+}
+    
 

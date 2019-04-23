@@ -50,41 +50,12 @@ namespace ChallengeClub.Controllers
         }
 
 
-        //public IActionResult GetName([FromForm]string queryName)
-        //{
-
-        //    ViewBag.Submitted = this.activityDefinitionRepository.GetActivityDefinitionByName(queryName);
-
-        //    var date = new DateTime();
-        //    activityRepository.AddActivity(ViewBag.Submitted.Name, ViewBag.Submitted.Hours, ViewBag.Submitted.Description, date);
-
-        //    return View();
-        //}
-
-        //[HttpPost("activities")]
-        //public IActionResult AddActivities([FromForm]AddActivityModel activities)
-        //{
-
-
-        //    foreach(var act in activities.Activities)
-        //    {
-        //        activityRepository.AddActivity(act.Name, act.Hours);
-        //    }
-
-        //    return RedirectToAction("EmployeeActivityManager");
-        //}
-
-        [HttpPost ("activities")]
-        public IActionResult EmployeeActivityAdd([FromForm]string submittedName, int submittedHours )
+        [HttpPost("activities")]
+        public IActionResult EmployeeActivityAdd([FromForm]string submittedName, int submittedHours)
         {
             activityRepository.AddActivity(submittedName, submittedHours);
             return RedirectToAction("EmployeeActivityManager");
         }
     }
-
-    //public class AddActivityModel
-    //{
-    //    public IEnumerable<EmployeeActivityModel> Activities { get; set; }
-    //}
-
 }
+

@@ -70,7 +70,11 @@
 
                         </div>
                         <div class="modal-footer">
+<<<<<<< HEAD
                             <input type="submit" style="width:10%;height:50px;" class="btn btn-default" name="activitySubmit" ></input>
+=======
+                            <input type="submit" style="width:10%;height:50px;" class="btn btn-default" name="activitySubmit"></input>
+>>>>>>> jing/test
                             <button type="button" style="width:10%;height:50px;" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         </div>
                     </form>
@@ -92,7 +96,15 @@
                             <h3 id="yesMsg2"></h3>
                         </div>
                         <div class="modal-footer">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <input type="submit" id="confirmButton1"  style="width:10%;height:50px;" class="btn btn-default" data-dismiss="modal" ></input>
+=======
+                            <input type="submit" id="confirmButton1" style="width:10%;height:50px;" class="btn btn-default" data-dismiss="modal"></input>
+>>>>>>> jing/test
+=======
                             <input type="submit" id="confirmButton1"  style="width:10%;height:50px;" class="btn btn-default" />
+>>>>>>> b06af94d259380ab092ee6a6a142c47f9bbcc2f2
                             <button id="confirmButton2" type="button" style="width:10%;height:50px;" class="btn btn-default" data-dismiss="modal"></button>
                         </div>
                     </form>
@@ -105,8 +117,12 @@
 </html>
 
 <script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     function submitForm() {
     }
+>>>>>>> b06af94d259380ab092ee6a6a142c47f9bbcc2f2
 
 
 function makeButton(name,hrs,description,imagePath)
@@ -153,11 +169,44 @@ function makeButton(name,hrs,description,imagePath)
     div1.setAttribute("id",nameSelected);
 
                 div1.setAttribute("class","events");
+=======
+    function makeButton(name, hrs, description) {
+        var i = false
+        var button = document.createElement("BUTTON");
+        var space = document.createTextNode(" ");
+        button.setAttribute("id", name);
+        var text1 = name;
+        var text2 = hrs + " Hours";
+        var b = document.createElement("br");
+        var t1 = document.createTextNode(text1);
+        var t2 = document.createTextNode(text2);
+        button.appendChild(t1);
+        button.appendChild(b);
+        button.appendChild(t2);
+        document.getElementById("body").appendChild(button);
+        document.getElementById("body").appendChild(space);
+        button.style.borderColor = "black";
+        button.style.borderWidth = "1px";
+        document.getElementById(name).addEventListener("click", select(name, hrs, i));
+    }
+    function select(name, hrs, i, description) {
+        return function (e) {
+            if (i == false) {
+                document.getElementById(name).style.borderColor = "#03EFFA";
+                document.getElementById(name).style.borderWidth = "5px";
+                var button1 = document.createElement("BUTTON");
+                var div1 = document.createElement("DIV");
+                var nameSelected = name + "_selected";
+                button1.setAttribute("id", nameSelected);
+                div1.setAttribute("id", nameSelected);
+                div1.setAttribute("class", "events");
+>>>>>>> jing/test
                 div1.style.backgroundColor = "lightblue";
                 div1.style.width = "20%";
                 div1.style.height = "30%";
                 div1.style.borderRadius = "10px";
                 div1.style.textAlign = "center";
+<<<<<<< HEAD
 
 
     var text1 = name;
@@ -282,3 +331,79 @@ function makeButton(name,hrs,description,imagePath)
     }
 
 
+=======
+                var text1 = name;
+                var text2 = hrs + " Hours";
+                var b = document.createElement("br");
+                var t01 = document.createTextNode(text1);
+                var t02 = document.createTextNode(text2);
+                var b2 = document.createElement("br");
+                var t11 = document.createElement("input");
+                t11.readOnly = true;
+                t11.setAttribute("value", text1);
+                t11.setAttribute("name", "queryName");
+                t11.setAttribute("style", "background-color: lightblue");
+                var t12 = document.createElement("input");
+                t12.readOnly = true;
+                t12.setAttribute("value", text2);
+                t12.setAttribute("style", "background-color: lightblue");
+                var b3 = document.createElement("br");
+                b3.setAttribute("id", "break");
+                button1.appendChild(t01);
+                button1.appendChild(b);
+                button1.appendChild(t02);
+                div1.appendChild(t11);
+                div1.appendChild(b2);
+                div1.appendChild(t12);
+                button1.style.borderColor = "black";
+                button1.style.borderWidth = "1px";
+                document.getElementById("selectedArea").appendChild(button1);
+                document.getElementById("activitiesArea").appendChild(div1);
+                document.getElementById("activitiesArea").appendChild(b3);
+                i = true;
+                document.getElementById(nameSelected).addEventListener("click", deselect(name, hrs, i, description));
+            }
+        }
+    }
+    function deselect(name, hrs, i, description) {
+        return function (e) {
+            var nameSelected = name + "_selected";
+            document.getElementById(name).style.borderColor = "black";
+            document.getElementById(name).style.borderWidth = "1px";
+            parent1 = document.getElementById("selectedArea");
+            parent2 = document.getElementById("activitiesArea");
+            parent1.removeChild(document.getElementById(nameSelected));
+            parent2.removeChild(document.getElementById(nameSelected));
+            parent2.removeChild(document.getElementById("break"));
+            i = false;
+            document.getElementById(name).addEventListener("click", select(name, hrs, i, description));
+        }
+    }
+    function submitSelected() {
+        if (document.getElementById("selectedArea").hasChildNodes()) {
+            document.getElementById("noMsg").innerHTML = "";
+            document.getElementById("confirmButton1").innerHTML = "Yes";
+            document.getElementById("confirmButton2").innerHTML = "No";
+            var yesMsg1 = "These are the activites you have selected for today:";
+            document.getElementById("yesMsg1").innerHTML = yesMsg1;
+            var yesMsg2 = "Are you sure you want these activities for today?";
+            document.getElementById("yesMsg2").innerHTML = yesMsg2;
+            var b = document.createElement("br");
+        }
+        else {
+            document.getElementById("yesMsg1").innerHTML = "";
+            document.getElementById("yesMsg2").innerHTML = "";
+            document.getElementById("confirmButton1").innerHTML = "Home";
+            document.getElementById("confirmButton2").innerHTML = "Cancel";
+            var noMsg = "You have not chosen any activities.";
+            document.getElementById("noMsg").innerHTML = noMsg;
+            document.getElementById("noMsg").style.fontSize = "large";
+        }
+    }
+</script>
+<br />
+@foreach (var item in ViewBag.Activities)
+{
+    <script>makeButton("@item.Name",@item.Hours,"@item.Description")</script>
+}
+>>>>>>> jing/test

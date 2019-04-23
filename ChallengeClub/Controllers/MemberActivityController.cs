@@ -14,20 +14,28 @@ namespace ChallengeClub.Controllers
     public class MemberActivityController : Controller
     {
         public readonly IConfiguration configuration;
+        public readonly MemberRepository memberRepository;
         public readonly ActivityRepository activityRepository;
+        public readonly MemberActivityRepository memberActivityRepo;
+
         public MemberActivityController(IConfiguration configuration)
         {
             this.configuration = configuration;
+            memberRepository = new MemberRepository(configuration);
             activityRepository = new ActivityRepository(configuration);
+            memberActivityRepo = new MemberActivityRepository(configuration);
         }
 
-        [HttpGet]
-        public IActionResult MemberActivity()
+        [HttpGet("{memberId}")]
+        public IActionResult MemberActivity(int memberId)
         {
 
             IEnumerable<MemberActivity> memberActivity = activityRepository.GetActivities().Select(activity => {
                 return new MemberActivity
                 {
+
+                    MemberId = memberId,
+
                     ActivityName = activity.Name,
                     ActivityId = activity.ActivityId,
                     ActivityImage = activity.ImagePath,
@@ -40,32 +48,43 @@ namespace ChallengeClub.Controllers
 
             ShowList.DailyActs = memberActivity.ToList();
 
-            ShowList.SelectedActs = new List<MemberActivity> { }; 
+            ShowList.SelectedActs = new List<MemberActivity> { };
 
             return View(ShowList);
         }
 
-    
-
         [HttpPost]
-        public IActionResult MemberActivity(ActivityList ls)
+        public IActionResult PostMemberActivity([FromForm]ActivityList ls)
         {
-            
+
             List<MemberActivity> TableList = new List<MemberActivity>();
 
-             foreach (var item in ls.DailyActs) {
-                 if (item.IsCheck) {
+            foreach (var item in ls.DailyActs)
+            {
+                if (item.IsCheck)
+                {
                     TableList.Add(item);
-                 }
-             }
-             ActivityList ConfirmList = new ActivityList();
-            
+                }
+            }
+            ActivityList ConfirmList = new ActivityList();
+
             ConfirmList.SelectedActs = TableList;
             ConfirmList.DailyActs = ls.DailyActs;
 
-            return View(ConfirmList);
+
+            return View("MemberActivity", ConfirmList);
         }
 
+        [HttpPost("PostMemberActivity")]
+        public IActionResult Confirm([FromForm]ActivityList activityList) {
+
+            foreach(var act in activityList.SelectedActs)
+            {
+                memberActivityRepo.CreateMemberActivity(act.MemberId, act.ActivityId);
+            }
         
+
+            return View("Views/Logout/Logout.cshtml");
+        }
     }
 }

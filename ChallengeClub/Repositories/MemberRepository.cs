@@ -30,7 +30,7 @@ namespace ChallengeClub.Repositories
             }
         }
 
-        public Member GetMemberById(string number)
+        public Member GetMemberByNumber(string number)
         {
             var connectionString = configuration.GetConnectionString("ChallengeClubDB");
             using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
@@ -45,6 +45,38 @@ namespace ChallengeClub.Repositories
             }
         }
 
+        public Member GetMemberById(int memberId)
+        {
+            
+            var connectionString = configuration.GetConnectionString("ChallengeClubDB");
+            using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
+            {
+                const string query = @"
+                    SELECT m.*
+                    FROM Member m
+                    WHERE m.MemberId = @MemberId
+                ";
+
+                return connection.QuerySingleOrDefault<Member>(query, new { MemberId = memberId });
+            }
+        }
+
+        public void CreateMemberLogin(int memberId)
+        {
+
+            DateTime today = DateTime.Today;
+            var connectionString = configuration.GetConnectionString("ChallengeClubDB");
+
+            using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
+            {
+                const string query = @"
+                    INSERT INTO MemberLogin (MemberId, LoginDate)
+                    VALUES (@MemberId, @LoginDate)
+                ";
+
+                connection.Execute(query, new { MemberId = memberId, LoginDate = today });
+            }
+        }
 
         public void AddNewMember(string name, int memberNumber)
         {

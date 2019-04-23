@@ -22,6 +22,7 @@ namespace ChallengeClub.Models
 
     public class ActivityList
     {
+
         public List<MemberActivity> DailyActs { get; set; }
         public List<MemberActivity> SelectedActs { get; set; }
 

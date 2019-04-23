@@ -20,8 +20,10 @@ namespace ChallengeClub.Controllers
         }
 
         [HttpGet("Welcome/{memberId}")]
-        public IActionResult Welcome(string memberId)
+        public IActionResult Welcome(int memberId)
         {
+            memberRepository.CreateMemberLogin(memberId);
+
             var member = memberRepository.GetMemberById(memberId);
             return View(member);
         }

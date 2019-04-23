@@ -19,16 +19,16 @@
         <h3>Today's Activities : </h3><br>
 
         <div>
-            @using (Html.BeginForm("MemberActivity", "MemberActivity"))
-            {
-                for (int i = 0; i < Model.DailyActs.Count; i++)
+            <form method="post" action="/MemberActivity">
+                @for (int i = 0; i < Model.DailyActs.Count; i++)
                 {
-                    <div class="gallery">
-                        <a href="">
-                            <img src="@Model.DailyActs[i].ActivityImage" height="200" width="200">
-                        </a>
-                        <div class="desc">
+                <div class="gallery">
+                    <a href="">
+                        <img src="@Model.DailyActs[i].ActivityImage" height="200" width="200">
+                    </a>
+                    <div class="desc">
 
+<<<<<<< HEAD
                             @Html.CheckBoxFor(m => Model.DailyActs[i].IsCheck)
                             @Model.DailyActs[i].ActivityName<br>
                             @Model.DailyActs[i].StartTime Hours
@@ -37,44 +37,54 @@
                             @Html.HiddenFor(m => Model.DailyActs[i].ActivityName)
                             @Html.HiddenFor(m => Model.DailyActs[i].StartTime)
                         </div>
+=======
+                        @Html.CheckBoxFor(m => Model.DailyActs[i].IsCheck)
+                        @Model.DailyActs[i].ActivityName<br>
+                        @Model.DailyActs[i].StartTime
+                        @Html.HiddenFor(m => Model.DailyActs[i].ActivityImage)
+                        @Html.HiddenFor(m => Model.DailyActs[i].ActivityId)
+                        @Html.HiddenFor(m => Model.DailyActs[i].ActivityName)
+                        @Html.HiddenFor(m => Model.DailyActs[i].StartTime)
+                        @Html.HiddenFor(m => Model.DailyActs[i].MemberId)
+>>>>>>> 7d391f16b8cc3637226e1ac343a8d826265e55b9
                     </div>
+                </div>
                 }
                 <br>
                 <br>
                 <div>
-                    <input class="gradient-button gradient-button-1" type="submit" value="Select"></div>
-            }
+                    <input class="gradient-button gradient-button-1" type="submit" value="Select">
+                </div>
+            </form>
         </div>
         <br>
         <br>
         <br>
-        <hr>
+ 
 
 
-        <div>
+        <form method="post" action="/MemberActivity/PostMemberActivity">
             <h3>Your Activities : </h3><br>
-            <table class="table table-striped ">
-                @using (Html.BeginForm("MemberActivity", "MemberActivity"))
-                {
+            <table id="confirm">
 
                 <tr>
-                    <td>Time</td>
-                    <td>Activity</td>
+                    <th>Time</th>
+                    <th>Activity</th>
                    
                 </tr>
-                    for (int i = 0; i < Model.SelectedActs.Count; i++)
+                    @for (int i = 0; i < Model.SelectedActs.Count; i++)
                     {
                         <tr>
                             <td>@Model.SelectedActs[i].StartTime</td>
                             <td>@Model.SelectedActs[i].ActivityName</td>
-                            
+                            @Html.HiddenFor(m => @Model.SelectedActs[i].ActivityId)
+                            @Html.HiddenFor(m => @Model.SelectedActs[i].MemberId)
                         </tr>
                     }
 
-                }
             </table>
-            <a asp-controller="Logout" asp-action="Logout"><input class="gradient-button gradient-button-2" type="submit" value="Confirm"></a>
-        </div>
+            <input class="gradient-button gradient-button-2" type="submit" value="Confirm">
+        </form>
         </div>
 </body>
 </html>

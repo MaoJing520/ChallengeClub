@@ -14,7 +14,7 @@ div.gallery {
 
 
     div.gallery:hover {
-        border: 2px solid #B23AD4;
+        border: 2px solid #6c7ae0;
     }
 
     div.gallery img {
@@ -92,3 +92,42 @@ div.desc {
     width: 1200px;
     margin: 0 auto;
 }
+
+#confirm {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+    #confirm td, #confirm th {
+        border: 1px solid #ddd;
+        padding-left: 150px;
+        padding-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #confirm tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #confirm tr:hover {
+        background-color: #ddd;
+    }
+
+    #confirm th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #6c7ae0;
+        color: white;
+    }
+
+    #confirm td {
+       
+        text-align: left;
+        
+    }
+
+
