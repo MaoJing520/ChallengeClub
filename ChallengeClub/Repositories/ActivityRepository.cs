@@ -58,11 +58,11 @@ namespace ChallengeClub.Repositories
                 var description = "x";
                 var imagePath = "x";
                 const string query = @"
-                    INSERT INTO Activity(Name,Hours,ImagePath,Description,Date)
-                    VALUES(@Name,@Hours,@ImagePath,@Description,@Date)
+                    INSERT INTO Activity(Name,Duration,ImagePath,Description,Date)
+                    VALUES(@Name,@Duration,@ImagePath,@Description,@Date)
                 ";
 
-                connection.Execute(query, new { Name = name, Hours = hours, ImagePath = imagePath, Description = description, Date = date });
+                connection.Execute(query, new { Name = name, Duration = hours, ImagePath = imagePath, Description = description, Date = date });
             }
         }
     }

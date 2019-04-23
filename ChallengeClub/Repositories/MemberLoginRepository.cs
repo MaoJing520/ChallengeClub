@@ -16,13 +16,14 @@ namespace ChallengeClub.Repositories
             }
             public IEnumerable<MemberAttendance> GetAttendanceByDate()
         {
+            DateTime today = DateTime.Today;
             var connectionString = configuration.GetConnectionString("ChallengeClubDB");
             using (var connection = SqlConnectionFactory.GetSqlConnection(connectionString))
             {
                 //DateTime date = DateTime.Now.Date; 
                 //string loginDate = date.ToString("MM-dd-yyyy");
 
-                var loginDate = "04-10-2019";
+                
 
                 
 
@@ -37,7 +38,7 @@ namespace ChallengeClub.Repositories
                     WHERE a.LoginDate = @LoginDate
                 ";
 
-                return connection.Query<MemberAttendance>(query, new { LoginDate = loginDate });
+                return connection.Query<MemberAttendance>(query, new { LoginDate = today });
             }
         }
     }
