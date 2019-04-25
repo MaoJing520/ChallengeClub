@@ -11,10 +11,10 @@ using ChallengeClub.Models;
 namespace ChallengeClub.Controllers
 {
     [Route("Icon")]
-    public class IconController : Controller
+    public class Icon_logoutController : Controller
     {
-        
-        public IActionResult Icon_login()
+
+        public IActionResult Icon_logout()
         {
             return View();
         }
