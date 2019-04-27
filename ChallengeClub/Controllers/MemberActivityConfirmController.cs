@@ -34,15 +34,15 @@ namespace ChallengeClub.Controllers
             return View();
         }
 
-        /*[HttpPost]
+        [HttpPost]
         public ActionResult Create(IFormCollection collection)
         {
             this.memberActivityRepository.CreateMemberActivity(
-                collection["Member"],
-                collection["Activity"]
+                int.Parse(collection["Member"].ToString()),
+                int.Parse(collection["Activity"].ToString())
             );
             return RedirectToAction("MemberActivityConfirm");
-        }*/
+        }
 
         [HttpPost]
         public ActionResult Delete(int id, IFormCollection collection)
