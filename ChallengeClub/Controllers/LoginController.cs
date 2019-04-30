@@ -14,10 +14,13 @@ namespace ChallengeClub.Controllers
     {
         public readonly IConfiguration configuration;
         public readonly MemberRepository memberRepository;
+        public readonly MemberLoginRepository memberLoginRepository;
+
         public LoginController(IConfiguration configuration)
         {
             this.configuration = configuration;
             memberRepository = new MemberRepository(configuration);
+            memberLoginRepository = new MemberLoginRepository(configuration);
         }
 
         [HttpGet]
@@ -38,13 +41,27 @@ namespace ChallengeClub.Controllers
             }
 
             var member = memberRepository.GetMemberByNumber(memberId);
+            int memId = member.MemberId;
+            var loginMember = memberLoginRepository.GetAttendanceById(memId);
             if (member == null)
             {
                 ViewBag.Error = "The number is not exist.  Please Try Again.";
                 return View();
             }
 
-            return View("Views/Icon/Icon.cshtml",member);
+            else
+            {
+                if (loginMember == null)
+                {
+                    return View("Views/Icon/Icon_login.cshtml", member);
+                }
+
+                else
+                {
+                    return View("Views/Icon/Icon_logout.cshtml", member);
+                }
+
+            }           
         }
     }
 }
