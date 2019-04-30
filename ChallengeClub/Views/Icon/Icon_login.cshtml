@@ -1,0 +1,29 @@
+﻿@model ChallengeClub.Models.Member;
+
+@{
+    ViewData["Title"] = "Icon";
+    Layout = null;
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/Icon.css" />
+
+</head>
+
+<body>
+    <div class="banner">
+        <span class="icon_header">Is that you ?</span>
+    </div>
+
+    <div class="icon"><img src="@Model.IconPath" height="200" width="200"></div>
+
+    <div class="btn-login"><a href="/Welcome/@Model.MemberId" class="gradient-button gradient-button-1" role="button" >Yes, log in.</a></div>
+
+    <div class="btn-notme"><a asp-controller="Login" asp-action="Index" class="gradient-button gradient-button-3" role="button">No, not me.</a></div>
+
+    
+</body>
+</html>
+
