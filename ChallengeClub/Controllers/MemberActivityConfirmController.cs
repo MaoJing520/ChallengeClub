@@ -44,6 +44,7 @@ namespace ChallengeClub.Controllers
             return RedirectToAction("MemberActivityConfirm");
         }
 
+
         [HttpPost]
         public ActionResult Delete(int id, IFormCollection collection)
         {
