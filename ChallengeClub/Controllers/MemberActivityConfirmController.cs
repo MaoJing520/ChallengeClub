@@ -40,6 +40,7 @@ namespace ChallengeClub.Controllers
             this.memberActivityRepository.CreateMemberActivity(
                 int.Parse(collection["Member"].ToString()),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 int.Parse(collection["Activity"].ToString())            
 
             );
@@ -48,11 +49,17 @@ namespace ChallengeClub.Controllers
 
       
 =======
+=======
+>>>>>>> 2091ea7a1fd881af2890e801805682fb24cef20d
                 int.Parse(collection["Activity"].ToString())
             );
             return RedirectToAction("MemberActivityConfirm");
         }
+<<<<<<< HEAD
 >>>>>>> d23f8242790b120c0c6307bf0e6f4842abfd7db9
+=======
+
+>>>>>>> 2091ea7a1fd881af2890e801805682fb24cef20d
 
         [HttpPost]
         public ActionResult Delete(int id, IFormCollection collection)
