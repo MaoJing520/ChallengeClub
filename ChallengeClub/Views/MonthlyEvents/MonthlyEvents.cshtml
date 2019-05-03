@@ -26,11 +26,9 @@
         <h5>Use the "+Add Event" button to add an event to the calendar.</h5>
         <h5>Use the "edit" button to view and edit an event's information.</h5>
         <h5>Use the "delete" button to remove an event from the calendar.</h5>
-<<<<<<< HEAD
-        <hr />
-=======
 
->>>>>>> 7d391f16b8cc3637226e1ac343a8d826265e55b9
+        <hr />
+
     </div>
 
     <div class="modal fade" id="eventModal" role="dialog">
@@ -86,7 +84,7 @@
         @foreach (var item in Model.MonthlyEvents)
         {
 
-<<<<<<< HEAD
+
                     <form method="post" action="/deleteEvent">
                         <table>
                             <tr><td><h3 id="eventDate_@item.EventId"></h3></td></tr>
@@ -103,22 +101,7 @@
                 <hr />
 }
                 </div>
-=======
 
-            <table>
-                <tr><td><h3 id="eventDate_@item.EventId"></h3></td></tr>
-                <tr>
-                    <td style="width:150%" name="event_@item.EventId" id="eventPlace_@item.EventId"><h4></h4></td>
-                    <td><button name="@item.EventId" style="border-radius:7px">edit</button></td>
-                    <td><button name="@item.EventId" style="border-radius:7px">delete</button></td>
-                </tr>
-            </table>
-            <script>DisplayDate("@item.Date","@item.EventId")</script>
-            <script>DisplayEvent("@item.Title","@item.EventId")</script>
-            <hr />
-        }
-    </div>
->>>>>>> 7d391f16b8cc3637226e1ac343a8d826265e55b9
 
 
 </div>

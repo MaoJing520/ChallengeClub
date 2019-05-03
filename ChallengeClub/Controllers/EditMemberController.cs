@@ -7,7 +7,6 @@ using ChallengeClub.Models;
 using Microsoft.Extensions.Configuration;
 using ChallengeClub.Repositories;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ChallengeClub.Controllers
 {
@@ -46,7 +45,7 @@ namespace ChallengeClub.Controllers
 
         }
 
-        [HttpPost ("/delete")]
+        [HttpPost("/delete")]
         public IActionResult EditMember([FromForm]int memberId)
         {
 

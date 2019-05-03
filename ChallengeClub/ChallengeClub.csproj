@@ -19,18 +19,14 @@
     <Folder Include="Views\QuarterlyReport\" />
     <Folder Include="Views\MonthlyReport\" />
     <Folder Include="Views\Attendance\" />
-    <Folder Include="Views\MonthlyEvents\" />
-    <Folder Include="Views\EditMember\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\EmployeeDashboardHome\_ELayout.cshtml" />
-    <Content Remove="appsettings.darwin.json" />
-    <Content Remove="wwwroot\images\background1.jpg" />
-    <Content Remove="wwwroot\images\bg1.jpg" />
-    <Content Remove="Views\Shared\_EmployeeLayout.cshtml" />
-    <Content Remove="Models\EmployeeActivityManager.cshtml" />
+    <Content Remove="Views\Icon\Icon.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Models\EmployeeActivityManager.cshtml.cs" />
+    <Compile Remove="Controllers\MemberActivityController.cs" />
+    <Compile Remove="Controllers\MemberActivityController.cs" />
+    <Compile Remove="Controllers\MemberActivityController.cs" />
   </ItemGroup>
 </Project>
